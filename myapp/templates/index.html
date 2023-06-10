@@ -1,0 +1,25 @@
+<h1>My App</h1>
+
+<a href="{% url 'create' %}">Create New</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>...</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for my_object in my_objects %}
+    <tr>
+      <td>{{ my_object.title }}</td>
+      <td>{{ my_object.description }}</td>
+      <td>
+        <a href="{% url 'update' my_object.pk %}">Edit</a>
+        <a href="{% url 'delete' my_object.pk %}">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
